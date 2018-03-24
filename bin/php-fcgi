@@ -14,7 +14,7 @@ try {
     echo $e->getMessage();
     exit(1);
 }
-
+dl('swoole');
 $handlerClass = getenv('handler_class', true) ?: SimpleRequestHandler::class;
 
 $server = new FastCgiServer($config, new $handlerClass);
