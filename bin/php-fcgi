@@ -1,0 +1,24 @@
+#!/usr/bin/php
+<?php
+
+use Esockets\Base\Configurator;
+use Esockets\Socket\Ipv4Address;
+use Maestroprog\PhpFpm\FastCgiServer;
+use Maestroprog\PhpFpm\SimpleRequestHandler;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+try {
+    $config = new Configurator(require_once __DIR__ . '/../config/config.php');
+} catch (\Esockets\Base\Exception\ConfiguratorException $e) {
+    echo $e->getMessage();
+    exit(1);
+}
+
+$handlerClass = getenv('handler_class', true) ?: SimpleRequestHandler::class;
+
+$server = new FastCgiServer($config, new $handlerClass);
+$server
+    ->open(new Ipv4Address('127.0.0.1', 9002))
+    ->run()
+    ->stop();

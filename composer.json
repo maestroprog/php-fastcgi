@@ -1,0 +1,13 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Maestroprog\\PhpFpm\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.2",
+    "maestroprog/esockets": "dev-master",
+    "lisachenko/protocol-fcgi": "^1.0@dev"
+  }
+}
