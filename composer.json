@@ -1,4 +1,17 @@
 {
+  "name": "maestroprog/php-fastcgi",
+  "type": "library",
+  "description": "FastCGI server written on PHP7.",
+  "keywords": ["fastcgi"],
+  "homepage": "https://github.com/maestroprog/php-fastcgi",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ruslan Yarullin",
+      "email": "maestroprog@gmail.com",
+      "role": "Developer"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "Maestroprog\\PhpFpm\\": "src/"
